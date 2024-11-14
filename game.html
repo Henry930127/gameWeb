@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小遊戲選單</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="center-content">
+        <h1>
+            <img src="images/gameboy.png" alt="icon" class="icon"> 歡迎來到遊戲市集
+        </h1>
+        <button onclick="openModal()">選擇小遊戲</button>
+    </div>
+
+    <!-- 遊戲選擇模態框 -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>選擇一個小遊戲</h2>
+            <div class="game-images">
+                <img src ="images/snake.png" alt="貪食蛇遊戲" onclick="window.location.href='./Snake/snake.html'">
+                <img src="images/pacman.png" alt="小精靈遊戲" onclick="window.location.href='./pacman/pacman.html'">
+                <img src="images/bee.png" alt="小蜜蜂遊戲" onclick="window.location.href='./bee/bee.html'">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('gameModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('gameModal').style.display = 'none';
+        }
+
+        // 點擊模態框外部時關閉模態框
+        window.onclick = function(event) {
+            const modal = document.getElementById('gameModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

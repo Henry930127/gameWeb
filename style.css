@@ -103,3 +103,15 @@ button {
     margin-right: 10px; /* 調整圖標與文字間距 */
     transform: rotate(30deg); /* 向左傾斜 30 度 */
 }
+.version_icon {
+    width: 20px; /* 調整圖標寬度，可根據需求更改 */
+    height: auto; /* 保持圖標的寬高比例 */
+    vertical-align: super; /* 文字上標 */
+    margin-right: 4px; /* 調整圖標與文字間距 */ 
+}
+
+h4 {
+    font-size: 1.2em; /* 調整標題文字大小 */
+    font-weight: normal; /* 設置字重 */
+    margin: 0; /* 去除外邊距 */
+}

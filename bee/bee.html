@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小蜜蜂遊戲</title>
+    <link rel="stylesheet" href="bee.css">
+</head>
+<body>
+    <div class="bee-game-header">
+        <h1>小蜜蜂遊戲</h1>
+        <button onclick="exitGame()">退出遊戲</button>
+    </div>
+    <div id="scoreBoard"></div>
+    <canvas id="gameCanvas" class="bee-canvas"></canvas>
+    <script src="bee.js"></script>
+
+    <script>
+        function exitGame() {
+            window.location.href = '/game.html';
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,56 @@
+.bee-game-header {
+    position: fixed; /* 固定位置 */
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.bee-game-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.bee-game-header button {
+    padding: 5px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.bee-game-header button:hover {
+    background-color: #ff0000;
+}
+
+/* 調整 scoreBoard 樣式，放置在標題下方 */
+#scoreBoard {
+    margin-top: 60px; /* 確保在標題下方 */
+    font-size: 16px;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+}
+
+/* 調整 canvas 樣式，避免被標題遮擋 */
+.bee-canvas {
+    margin-top: 100px; /* 確保不被標題和記分板遮擋 */
+    border: 1px solid black;
+    width: 600px; /* 設置畫布寬度 */
+    height: 500px; /* 設置畫布高度 */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

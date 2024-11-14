@@ -1,0 +1,56 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.snake-game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    box-sizing: border-box;
+}
+
+.snake-game-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.snake-game-header button {
+    padding: 5px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.snake-game-header button:hover {
+    background-color: #ff0000;
+}
+
+#scoreBoard {
+    font-size: 18px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #e0e0e0;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+canvas {
+    border: 1px solid black;
+    background-color: #fff;
+    margin-top: 20px;
+}

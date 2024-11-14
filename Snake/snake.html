@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>貪食蛇遊戲</title>
+    <link rel="stylesheet" href="snake.css">
+</head>
+<body>
+    <!-- 標題欄 -->
+    <div class="snake-game-header">
+        <h1>貪食蛇遊戲</h1>
+        <button onclick="exitGame()">退出遊戲</button>
+    </div>
+
+    <!-- 記分板 -->
+    <div id="scoreBoard">Score: 0</div>
+
+    <!-- 遊戲畫布 -->
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <script src="snake.js"></script>
+
+    <script>
+        // 定義退出遊戲的功能
+        function exitGame() {
+            window.location.href = '/game.html'; // 返回主選單
+        }
+    </script>
+</body>
+</html>

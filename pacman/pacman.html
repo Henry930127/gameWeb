@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小精靈遊戲</title>
+    <link rel="stylesheet" href="pacman.css">
+</head>
+<body>
+    <div class="pacman-game-header">
+        <h1>小精靈遊戲</h1>
+        <button onclick="exitGame()">退出遊戲</button>
+    </div>
+    <div id="scoreBoard"></div>
+    <canvas id="gameCanvas" class="pacman-canvas"></canvas>
+    <script src="pacman.js"></script>
+
+    <script>
+        function exitGame() {
+            window.location.href = '/game.html';
+        }
+    </script>
+</body>
+</html>

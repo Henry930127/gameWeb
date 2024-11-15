@@ -20,6 +20,15 @@
     <!-- 遊戲畫布 -->
     <canvas id="gameCanvas" width="400" height="400"></canvas>
 
+    <!-- 靜態框結構 -->
+    <div id="endModal" class="pushstone-modal">
+        <div class="pushstone-modal-content">
+            <p>恭喜完成所有關卡！</p>
+            <button onclick="goToHomePage()">回到首頁</button>
+            <button onclick="replayGame()">重新遊玩</button>
+        </div>
+    </div>
+
     <script src="pushstone.js"></script>
 
     <script>

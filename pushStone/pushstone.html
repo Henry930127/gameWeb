@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旋轉方塊遊戲</title>
+    <link rel="stylesheet" href="pushstrone.css">
+</head>
+<body>
+    <!-- 標題欄 -->
+    <div class="pushstone-game-header">
+        <h1>旋轉方塊遊戲</h1>
+        <button onclick="exitGame()">退出遊戲</button>
+    </div>
+
+    <div id="scoreBoard">
+        時間剩餘：<span id="timeRemaining"></span> 秒 | 關卡：<span id="level"></span>
+    </div>
+
+    <!-- 遊戲畫布 -->
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <script src="pushstone.js"></script>
+
+    <script>
+        // 定義退出遊戲的功能
+        function exitGame() {
+            window.location.href = '/game.html'; // 返回主選單
+        }
+    </script>
+</body>
+</html>

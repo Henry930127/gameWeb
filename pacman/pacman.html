@@ -11,6 +11,15 @@
         <h1>小精靈遊戲</h1>
         <button onclick="exitGame()">退出遊戲</button>
     </div>
+    <!-- 通關靜態框 -->
+    <div id="endModal" class="pacman-modal">
+        <div class="pacman-modal-content">
+            <p>恭喜完成所有關卡！</p>
+            <button onclick="goToHomePage()">回到首頁</button>
+            <button onclick="replayGame()">重新遊玩</button>
+        </div>
+    </div>
+    <!-- 記分板 -->
     <div id="scoreBoard"></div>
     <canvas id="gameCanvas" class="pacman-canvas"></canvas>
     <script src="pacman.js"></script>

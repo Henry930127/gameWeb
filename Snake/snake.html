@@ -12,7 +12,14 @@
         <h1>貪食蛇遊戲</h1>
         <button onclick="exitGame()">退出遊戲</button>
     </div>
-
+    <!-- 通關靜態框 -->
+    <div id="endModal" class="snack-modal">
+        <div class="snack-modal-content">
+            <p>恭喜完成所有關卡！</p>
+            <button onclick="goToHomePage()">回到首頁</button>
+            <button onclick="replayGame()">重新遊玩</button>
+        </div>
+    </div>
     <!-- 記分板 -->
     <div id="scoreBoard">Score: 0</div>
 

@@ -3,17 +3,18 @@ const ctx = canvas.getContext('2d');
 const boxSize = 20; // 每格大小
 const canvasSize = canvas.width / boxSize;
 
-
 let snake = [{ x: 5, y: 5 }]; // 初始貪食蛇位置
 let direction = "null"; // 初始方向
 let food = { x: Math.floor(Math.random() * canvasSize), y: Math.floor(Math.random() * canvasSize) };
 let score = 0;
 let speed = 300;
+let game;
 
 // 更新記分板
 function updateScore() {
     document.getElementById("scoreBoard").innerHTML = `Score: ${score}`;
 }
+
 // 控制貪食蛇方向
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
@@ -78,9 +79,13 @@ function updateGame() {
     // 檢查是否吃到食物
     if (head.x === food.x && head.y === food.y) {
         score += 10;
-        speed += 10;
+        speed = Math.max(50, speed - 20); // 增加速度，速度不能小於50
         updateScore();
         generateFood(); // 生成新的食物
+
+        // 重啟遊戲循環，根據新速度更新
+        clearInterval(game);
+        game = setInterval(updateGame, speed);
     } else {
         snake.pop(); // 移除尾部
     }
@@ -93,19 +98,36 @@ function updateGame() {
 // 遊戲結束
 function gameOver() {
     clearInterval(game);
-    alert("遊戲結束！重新開始？");
-    window.location.href = '/game.html'; //跳回主頁面
+    displayEndOptions(); // 使用靜態框
 }
 
-// 重置遊戲
-function resetGame() {
-    snake = [{ x: 5, y: 5 }];
-    direction = "RIGHT";
+// 顯示靜態框的方法
+function displayEndOptions() {
+    const modal = document.getElementById('endModal');
+    modal.style.display = 'flex';
+}
+
+// 回到首頁方法
+function goToHomePage() {
+    window.location.href = '/game.html'; // 回到首頁
+}
+
+// 重新遊玩方法
+function replayGame() {
+    const modal = document.getElementById('endModal');
+    modal.style.display = 'none';
     score = 0;
+    direction = "null";
+    snake = [{ x: 5, y: 5 }];
+    speed = 300;
     updateScore();
     generateFood();
     game = setInterval(updateGame, speed);
 }
 
 // 開始遊戲
-let game = setInterval(updateGame, speed);
+game = setInterval(updateGame, speed);
+
+// 將方法設置為全域範圍，讓 HTML 按鈕可以使用
+window.goToHomePage = goToHomePage;
+window.replayGame = replayGame;

@@ -140,7 +140,7 @@ class PacmanGame {
     }
 
     nextLevel() {
-        if (this.level < 10) {
+        if (this.level < 3) {
             this.level++;
             this.mapSize++;
             this.coinCount += 5;
@@ -149,17 +149,42 @@ class PacmanGame {
             this.resetGame();
         } else {
             clearInterval(this.timer);
-            alert("恭喜通過所有關卡！");
-            window.location.href = 'game.html'; // 通關後跳轉回首頁
+            this.displayEndOptions();// 使用靜態框
         }
     }
 
     gameOver() {
         clearInterval(this.timer);
-        alert("挑戰失敗！重新挑戰吧！");
-        window.location.href = '/game.html'; //失敗回到首頁
+        this.displayEndOptions(); // 使用靜態框
+    }
+
+    // 顯示靜態框的方法
+    displayEndOptions() {
+        const modal = document.getElementById('endModal');
+        modal.style.display = 'flex';
+    }
+
+    // 回到首頁方法
+    goToHomePage() {
+        window.location.href = '/game.html'; // 回到首頁
+    }
+
+    // 重新遊玩方法
+    replayGame() {
+        const modal = document.getElementById('endModal');
+        modal.style.display = 'none';
+        this.level = 1; // 重置到第一關
+        this.start(); // 重新初始化遊戲
     }
 }
 
 const pacmanGame = new PacmanGame();
 pacmanGame.start();
+// 將方法設置為全域範圍，讓 HTML 按鈕可以使用
+window.goToHomePage = function() {
+    pacmanGame.goToHomePage();
+};
+
+window.replayGame = function() {
+    pacmanGame.replayGame();
+};

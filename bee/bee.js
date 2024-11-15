@@ -33,7 +33,7 @@ class BeeGame {
         this.blocks = this.generateBlocks();
         this.attacks = []; // 重置攻擊物件
         this.startTime = Date.now(); // 重置開始時間
-        this.totalTime = this.totalTime + this.level * 50;//增加時間
+        this.totalTime += this.level * 50; // 增加時間
         this.drawGame();
         this.updateScoreBoard();
     }
@@ -112,7 +112,6 @@ class BeeGame {
         this.updateScoreBoard();
     }
 
-
     moveBullets() {
         this.bullets = this.bullets.filter(bullet => bullet.y > 0);
         this.bullets.forEach(bullet => {
@@ -166,23 +165,40 @@ class BeeGame {
     }
 
     nextLevel() {
-        if(this.level < 5){
+        if(this.level < 5) {
             this.level++;
             this.targetScore += this.level * 50;
             this.totalTime = 300; // 重置時間限制為 5 分鐘
             this.maxBlocks = this.level * 5;
-            this.resetGame(); 
+            this.resetGame();
         } else {
             clearInterval(this.timer);
-            alert("恭喜通過所有關卡！");
-            window.location.href = 'game.html'; // 通關後跳轉回首頁
+            this.displayEndOptions(); // 使用靜態框
         }
     }
 
     gameOver() {
         clearInterval(this.timer);
-        alert("挑戰失敗！重新挑戰吧！");
-        window.location.href = 'game.html';
+        this.displayEndOptions(); // 使用靜態框
+    }
+
+    // 顯示靜態框的方法
+    displayEndOptions() {
+        const modal = document.getElementById('endModal');
+        modal.style.display = 'flex';
+    }
+
+    // 回到首頁方法
+    goToHomePage() {
+        window.location.href = '/game.html'; // 回到首頁
+    }
+
+    // 重新遊玩方法
+    replayGame() {
+        const modal = document.getElementById('endModal');
+        modal.style.display = 'none';
+        this.level = 1; // 重置到第一關
+        this.start(); // 重新初始化遊戲
     }
 
     handleKeyPress(e) {
@@ -202,3 +218,12 @@ class BeeGame {
 
 const beeGame = new BeeGame();
 beeGame.start();
+
+// 將方法設置為全域範圍，讓 HTML 按鈕可以使用
+window.goToHomePage = function() {
+    beeGame.goToHomePage();
+};
+
+window.replayGame = function() {
+    beeGame.replayGame();
+};

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打靶遊戲</title>
+    <link rel="stylesheet" href="aim.css">
+</head>
+<body>
+    <!-- 標題與退出按鈕 -->
+    <div class="aim-header">
+        <h1>打靶遊戲</h1>
+        <button onclick="exitGame()">退出遊戲</button>
+    </div>
+
+    <!-- 記分板 -->
+    <div id="scoreBoard" class="aim-scoreboard">
+        分數: 0 | 剩餘時間: 5:00
+    </div>
+
+    <!-- 遊戲畫布 -->
+    <canvas id="gameCanvas" class="aim-canvas"></canvas>
+
+    <!-- 靜態框 -->
+    <div id="endModal" class="aim-modal">
+        <div class="aim-modal-content">
+            <h2 id="endMessage">遊戲結束</h2>
+            <button onclick="goToHomePage()">回到首頁</button>
+            <button onclick="replayGame()">重新遊玩</button>
+        </div>
+    </div>
+
+    <script src="aim.js"></script>
+    <script>
+        function exitGame() {
+            window.location.href = '/game.html';
+        }
+    </script>
+</body>
+</html>

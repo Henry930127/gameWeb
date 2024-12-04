@@ -1,0 +1,201 @@
+/* 頁面基本樣式 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #faf8ef;
+}
+
+/* 標題與退出按鈕區塊 */
+.g2048-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #bbada0;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.g2048-header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.g2048-header button {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.g2048-header button:hover {
+    background-color: #e50000;
+}
+
+/* 記分板樣式 */
+.g2048-scoreboard {
+    margin-top: 80px;
+    font-size: 18px;
+    color: #333;
+    background-color: #eee4da;
+    padding: 10px 20px;
+    text-align: center;
+    border: 1px solid #bbada0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    width: 90%;
+    max-width: 500px;
+}
+
+/* 遊戲容器樣式 */
+.g2048-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px; /* 增加方塊間的間距 */
+    background-color: #bbada0;
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #776e65;
+    border: 2px solid #a39489; /* 設置明顯的邊框顏色 */
+    border-radius: 5px;
+    background-color: #cdc1b4; /* 預設背景顏色 */
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1); /* 增加立體感 */
+}
+
+/* 根據數字值設置背景顏色和文字顏色 */
+.tile-2 {
+    background-color: #eee4da;
+    color: #776e65;
+}
+.tile-4 {
+    background-color: #ede0c8;
+    color: #776e65;
+}
+.tile-8 {
+    background-color: #f2b179;
+    color: #f9f6f2;
+}
+.tile-16 {
+    background-color: #f59563;
+    color: #f9f6f2;
+}
+.tile-32 {
+    background-color: #f67c5f;
+    color: #f9f6f2;
+}
+.tile-64 {
+    background-color: #f65e3b;
+    color: #f9f6f2;
+}
+.tile-128 {
+    background-color: #edcf72;
+    color: #f9f6f2;
+}
+.tile-256 {
+    background-color: #edcc61;
+    color: #f9f6f2;
+}
+.tile-512 {
+    background-color: #edc850;
+    color: #f9f6f2;
+}
+.tile-1024 {
+    background-color: #edc53f;
+    color: #f9f6f2;
+}
+.tile-2048 {
+    background-color: #edc22e;
+    color: #f9f6f2;
+}
+
+/* 空白方塊保持淡色調 */
+.tile-0 {
+    background-color: rgba(238, 228, 218, 0.35);
+    border: 2px solid rgba(238, 228, 218, 0.5); /* 更顯眼的邊框 */
+}
+
+/* 靜態框背景樣式 */
+.g2048-modal {
+    display: none; /* 預設隱藏 */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 靜態框內容樣式 */
+.g2048-modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    width: 90%;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.g2048-modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.g2048-modal-content button {
+    margin: 10px 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.g2048-modal-content button:hover {
+    background-color: #45a049;
+}
+
+/* 淡入效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

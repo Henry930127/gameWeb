@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄羅斯方塊</title>
+    <link rel="stylesheet" href="tetris.css">
+</head>
+<body>
+    <!-- 標題欄 -->
+    <div class="tetris-header">
+        <h1>俄羅斯方塊</h1>
+        <button onclick="exitGame()">退出遊戲</button>
+    </div>
+
+    <!-- 記分板 -->
+    <div id="scoreBoard" class="tetris-scoreboard">
+        分數: <span id="score">0</span>
+    </div>
+
+    <!-- 遊戲畫布 -->
+    <canvas id="gameCanvas" width="300" height="600"></canvas>
+
+    <!-- 靜態框 -->
+    <div id="endModal" class="tetris-modal">
+        <div class="tetris-modal-content">
+            <h2 id="endMessage">遊戲結束！</h2>
+            <button onclick="replayGame()">重新遊玩</button>
+            <button onclick="goToHomePage()">回到首頁</button>
+        </div>
+    </div>
+
+    <script src="tetris.js"></script>
+    <script>
+        // 定義退出遊戲的功能
+        function exitGame() {
+            window.location.href = '/game.html'; // 返回主選單
+        }
+    </script>
+</body>
+</html>
